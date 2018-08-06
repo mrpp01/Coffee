@@ -8,20 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		497ECFB820C4E4A2008ECC62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497ECFB720C4E4A2008ECC62 /* AppDelegate.swift */; };
-		497ECFBA20C4E4A2008ECC62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497ECFB920C4E4A2008ECC62 /* ViewController.swift */; };
 		497ECFBD20C4E4A2008ECC62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497ECFBB20C4E4A2008ECC62 /* Main.storyboard */; };
 		497ECFBF20C4E4A3008ECC62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497ECFBE20C4E4A3008ECC62 /* Assets.xcassets */; };
 		497ECFC220C4E4A3008ECC62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497ECFC020C4E4A3008ECC62 /* LaunchScreen.storyboard */; };
+		497ECFD120C4F1EF008ECC62 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497ECFD020C4F1EF008ECC62 /* Bag.swift */; };
+		497ECFD320C4F2C8008ECC62 /* Bean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497ECFD220C4F2C8008ECC62 /* Bean.swift */; };
+		497ECFD520C53533008ECC62 /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497ECFD420C53533008ECC62 /* Brew.swift */; };
+		CF05FE282112B10B00A20FC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF05FE272112B10B00A20FC3 /* User.swift */; };
+		CF05FE2A2112B1C700A20FC3 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF05FE292112B1C700A20FC3 /* Activity.swift */; };
+		CF05FE2C2113F4AF00A20FC3 /* Grinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */; };
+		CF0EE2F820FD984700A3D3AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0EE2F720FD984700A3D3AC /* ViewController.swift */; };
+		CF19D1F320EF202100A43961 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF19D1F220EF202100A43961 /* GoogleService-Info.plist */; };
+		CFB77FD021180F1D0032A22A /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */; };
+		DA5286B13E8804E5DEE8EE3B /* Pods_Coffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D6C28251AFCFCD395C188B /* Pods_Coffee.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3300C7FA7CEA89257B8B92FC /* Pods-Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coffee/Pods-Coffee.debug.xcconfig"; sourceTree = "<group>"; };
 		497ECFB420C4E4A2008ECC62 /* Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497ECFB720C4E4A2008ECC62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		497ECFB920C4E4A2008ECC62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		497ECFBC20C4E4A2008ECC62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		497ECFBE20C4E4A3008ECC62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		497ECFC120C4E4A3008ECC62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		497ECFC320C4E4A3008ECC62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497ECFD020C4F1EF008ECC62 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		497ECFD220C4F2C8008ECC62 /* Bean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bean.swift; sourceTree = "<group>"; };
+		497ECFD420C53533008ECC62 /* Brew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brew.swift; sourceTree = "<group>"; };
+		B411FC2B1614109FB0AA4324 /* Pods-Coffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coffee/Pods-Coffee.release.xcconfig"; sourceTree = "<group>"; };
+		C7D6C28251AFCFCD395C188B /* Pods_Coffee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coffee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF05FE272112B10B00A20FC3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF05FE292112B1C700A20FC3 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grinder.swift; sourceTree = "<group>"; };
+		CF0EE2F720FD984700A3D3AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF19D1F220EF202100A43961 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5286B13E8804E5DEE8EE3B /* Pods_Coffee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +61,8 @@
 			children = (
 				497ECFB620C4E4A2008ECC62 /* Coffee */,
 				497ECFB520C4E4A2008ECC62 /* Products */,
+				E27F56146E103BFC5B61426E /* Pods */,
+				FB65B482636D11C7CF562E3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +77,47 @@
 		497ECFB620C4E4A2008ECC62 /* Coffee */ = {
 			isa = PBXGroup;
 			children = (
-				497ECFB720C4E4A2008ECC62 /* AppDelegate.swift */,
-				497ECFB920C4E4A2008ECC62 /* ViewController.swift */,
 				497ECFBB20C4E4A2008ECC62 /* Main.storyboard */,
-				497ECFBE20C4E4A3008ECC62 /* Assets.xcassets */,
-				497ECFC020C4E4A3008ECC62 /* LaunchScreen.storyboard */,
+				CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */,
+				CF0EE2F720FD984700A3D3AC /* ViewController.swift */,
+				CF05FE272112B10B00A20FC3 /* User.swift */,
+				497ECFD020C4F1EF008ECC62 /* Bag.swift */,
+				497ECFD420C53533008ECC62 /* Brew.swift */,
+				CF05FE292112B1C700A20FC3 /* Activity.swift */,
+				CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */,
+				497ECFD220C4F2C8008ECC62 /* Bean.swift */,
 				497ECFC320C4E4A3008ECC62 /* Info.plist */,
+				CF19D1F220EF202100A43961 /* GoogleService-Info.plist */,
+				497ECFC920C4E62A008ECC62 /* Supporting Files */,
 			);
 			path = Coffee;
+			sourceTree = "<group>";
+		};
+		497ECFC920C4E62A008ECC62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				497ECFB720C4E4A2008ECC62 /* AppDelegate.swift */,
+				497ECFBE20C4E4A3008ECC62 /* Assets.xcassets */,
+				497ECFC020C4E4A3008ECC62 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E27F56146E103BFC5B61426E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3300C7FA7CEA89257B8B92FC /* Pods-Coffee.debug.xcconfig */,
+				B411FC2B1614109FB0AA4324 /* Pods-Coffee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB65B482636D11C7CF562E3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7D6C28251AFCFCD395C188B /* Pods_Coffee.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +127,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 497ECFC620C4E4A3008ECC62 /* Build configuration list for PBXNativeTarget "Coffee" */;
 			buildPhases = (
+				BD78798B1FBD4D6399705805 /* [CP] Check Pods Manifest.lock */,
 				497ECFB020C4E4A2008ECC62 /* Sources */,
 				497ECFB120C4E4A2008ECC62 /* Frameworks */,
 				497ECFB220C4E4A2008ECC62 /* Resources */,
+				1D944B26E52BD83CA40340E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				497ECFC220C4E4A3008ECC62 /* LaunchScreen.storyboard in Resources */,
+				CF19D1F320EF202100A43961 /* GoogleService-Info.plist in Resources */,
 				497ECFBF20C4E4A3008ECC62 /* Assets.xcassets in Resources */,
 				497ECFBD20C4E4A2008ECC62 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +189,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D944B26E52BD83CA40340E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Coffee/Pods-Coffee-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coffee/Pods-Coffee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD78798B1FBD4D6399705805 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Coffee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		497ECFB020C4E4A2008ECC62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497ECFBA20C4E4A2008ECC62 /* ViewController.swift in Sources */,
 				497ECFB820C4E4A2008ECC62 /* AppDelegate.swift in Sources */,
+				497ECFD120C4F1EF008ECC62 /* Bag.swift in Sources */,
+				CF05FE2A2112B1C700A20FC3 /* Activity.swift in Sources */,
+				CF05FE2C2113F4AF00A20FC3 /* Grinder.swift in Sources */,
+				CF05FE282112B10B00A20FC3 /* User.swift in Sources */,
+				CFB77FD021180F1D0032A22A /* StatisticTableViewCell.swift in Sources */,
+				497ECFD320C4F2C8008ECC62 /* Bean.swift in Sources */,
+				CF0EE2F820FD984700A3D3AC /* ViewController.swift in Sources */,
+				497ECFD520C53533008ECC62 /* Brew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +399,7 @@
 		};
 		497ECFC720C4E4A3008ECC62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3300C7FA7CEA89257B8B92FC /* Pods-Coffee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +418,7 @@
 		};
 		497ECFC820C4E4A3008ECC62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B411FC2B1614109FB0AA4324 /* Pods-Coffee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
