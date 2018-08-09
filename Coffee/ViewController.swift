@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var user: User!
     var bags: [Bag]!
     var brews: [Brew]!
+    var activities: [Activity]!
     var database: Firestore! {
         didSet {
             let settings = database.settings
@@ -23,27 +24,18 @@ class ViewController: UIViewController {
         }
     }
     
-    var bagQuery :Query? {
+    var activitiesQuery :Query? {
         didSet {
-            if let bagListener = bagListener {
-                bagListener.remove()
-                observeBagQuery()
+            if let activitiesListener = activitiesListener {
+                activitiesListener.remove()
+                observeActivitiesQuery()
             }
         }
     }
-    var bagListener: ListenerRegistration?
-    
-    var brewQuery :Query? {
-        didSet {
-            if let brewListener = brewListener {
-                brewListener.remove()
-                observeBrewQuery()
-            }
-        }
-    }
-    var brewListener: ListenerRegistration?
+    var activitiesListener: ListenerRegistration?
     
     @IBAction func demoAction(_ sender: UIButton) {
+        user.createBag(from: [String: Any]())
     }
     
     //MARK: App Life Cycle
@@ -53,19 +45,18 @@ class ViewController: UIViewController {
         database = user.database
         bags = user.bags
         brews = user.brews
-        bagQuery = baseBagQuerry()
-        brewQuery = baseBrewQuerry()
+        activitiesQuery = baseActivitiesQuerry()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
-        observeBagQuery()
+        observeActivitiesQuery()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        stopBagObserving()
+        stopActivitiesObserving()
     }
 }
 
@@ -82,55 +73,31 @@ extension ViewController {
 
 //MARK: Firebase Observation
 extension ViewController {
-    func baseBagQuerry() -> Query {
-        return Firestore.firestore().collection(User.CollectionKeys.bags)
+    func baseActivitiesQuerry() -> Query {
+        return Firestore.firestore().collection(User.CollectionKeys.activities)
     }
     
-    func observeBagQuery() {
-        guard let bagQuery = bagQuery else { return }
-        stopBagObserving()
+    func observeActivitiesQuery() {
+        guard let activitiesQuery = activitiesQuery else { return }
+        stopActivitiesObserving()
         
-        bagListener = bagQuery.addSnapshotListener { [unowned self] (snapshot, error) in
+        activitiesListener = activitiesQuery.addSnapshotListener { [unowned self] (snapshot, error) in
             guard let snapshot = snapshot else {
                 print("error fetching snapshot results: \(error!)")
                 return
             }
             
-            let models = snapshot.documents.map { (snapshotDocument) -> Bag in
-                return Bag.createBag(from: snapshotDocument)!
+            let activities = snapshot.documents.map { (snapshotDocument) -> Activity in
+                return Activity(from: snapshotDocument)!
             }
-            self.bags = models
+            self.activities = activities
         }
     }
     
-    func stopBagObserving() {
-        bagListener?.remove()
+    func stopActivitiesObserving() {
+        activitiesListener?.remove()
     }
     
-    func baseBrewQuerry() -> Query {
-        return Firestore.firestore().collection(User.CollectionKeys.brews)
-    }
-    
-    func observeBrewQuery() {
-        guard let brewQuery = brewQuery else { return }
-        stopBagObserving()
-        
-        brewListener = brewQuery.addSnapshotListener { [unowned self] (snapshot, error) in
-            guard let snapshot = snapshot else {
-                print("error fetching snapshot results: \(error!)")
-                return
-            }
-            
-            let models = snapshot.documents.map { (snapshotDocument) -> Brew in
-                return Brew(with: snapshotDocument)!
-            }
-            self.brews = models
-        }
-    }
-    
-    func stopBrewObserving() {
-        brewListener?.remove()
-    }
 }
 
 extension Int {

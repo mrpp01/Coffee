@@ -13,7 +13,7 @@ class Activity {
     var type: ActivityTypes
     var referenceDocumentID: String
     var dictionary: [String: Any] {
-        return [Key.type: self.type, Key.referenceDocumentID: self.referenceDocumentID]
+        return [Key.type: self.type.rawValue, Key.referenceDocumentID: self.referenceDocumentID]
     }
     
     //MARK: Initialization
@@ -28,12 +28,14 @@ class Activity {
     
      init?(from snapshot: DocumentSnapshot) {
         guard let dictionary = snapshot.data() else {
-            fatalError()
+            print("Snapshot Data is not available")
+            return nil
         }
         guard let typeRawValue = dictionary[Key.type] as? String, let type = ActivityTypes(rawValue: typeRawValue), let referenceDocumentID = dictionary[Key.referenceDocumentID] as? String else {
             print("Cannot create Activity from \(dictionary)")
             return nil
         }
+        self.reference = snapshot.reference
         self.type = type
         self.referenceDocumentID = referenceDocumentID
     }

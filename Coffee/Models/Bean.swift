@@ -38,6 +38,7 @@ class Origin {
         static let detail = "detail"
     }
 }
+/**
 let origins = [
     "Brazil",
     "Vietnam",
@@ -143,5 +144,5 @@ let originDocumentID = [
     "Zimbabwe",
     "Liberia"
 ]
-
+*/
 

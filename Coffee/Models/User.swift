@@ -44,6 +44,20 @@ class User {
         }
     }
     
+    func createDefault() {
+        let bagRef = database.collection("defaultValues").document("Bag")
+        let bag = Bag(from: [String: Any]())
+        
+        let brewRef = database.collection("defaultValues").document("Brew")
+        let brew = Brew(with: "", and: [String: Any]())
+        
+        let batch = database.batch()
+        batch.setData(bag.dictionary, forDocument: bagRef)
+        batch.setData(brew.dictionary, forDocument: brewRef)
+        
+        batch.commit()
+    }
+    
     //MARK: Create Brew
     /**
      Create a brew instance

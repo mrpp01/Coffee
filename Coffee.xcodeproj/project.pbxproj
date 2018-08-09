@@ -20,6 +20,11 @@
 		CF0EE2F820FD984700A3D3AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0EE2F720FD984700A3D3AC /* ViewController.swift */; };
 		CF19D1F320EF202100A43961 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF19D1F220EF202100A43961 /* GoogleService-Info.plist */; };
 		CFB77FD021180F1D0032A22A /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */; };
+		CFB77FD221187FB30032A22A /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD121187FB10032A22A /* RatingControl.swift */; };
+		CFB77FD421194B640032A22A /* BagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD321194B640032A22A /* BagTableViewCell.swift */; };
+		CFB77FD621194B720032A22A /* BrewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD521194B720032A22A /* BrewTableViewCell.swift */; };
+		CFB77FD821194BE60032A22A /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD721194BE60032A22A /* ActivityTableViewCell.swift */; };
+		CFB77FDA21194F980032A22A /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD921194F980032A22A /* MainTableViewController.swift */; };
 		DA5286B13E8804E5DEE8EE3B /* Pods_Coffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D6C28251AFCFCD395C188B /* Pods_Coffee.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +47,11 @@
 		CF0EE2F720FD984700A3D3AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF19D1F220EF202100A43961 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
+		CFB77FD121187FB10032A22A /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		CFB77FD321194B640032A22A /* BagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagTableViewCell.swift; sourceTree = "<group>"; };
+		CFB77FD521194B720032A22A /* BrewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTableViewCell.swift; sourceTree = "<group>"; };
+		CFB77FD721194BE60032A22A /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		CFB77FD921194F980032A22A /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				497ECFBB20C4E4A2008ECC62 /* Main.storyboard */,
-				CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */,
 				CF0EE2F720FD984700A3D3AC /* ViewController.swift */,
-				CF05FE272112B10B00A20FC3 /* User.swift */,
-				497ECFD020C4F1EF008ECC62 /* Bag.swift */,
-				497ECFD420C53533008ECC62 /* Brew.swift */,
-				CF05FE292112B1C700A20FC3 /* Activity.swift */,
-				CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */,
-				497ECFD220C4F2C8008ECC62 /* Bean.swift */,
+				CFB77FD921194F980032A22A /* MainTableViewController.swift */,
+				CFB77FDB21195B1B0032A22A /* UI */,
+				CFB77FDC21195B4B0032A22A /* Models */,
 				497ECFC320C4E4A3008ECC62 /* Info.plist */,
 				CF19D1F220EF202100A43961 /* GoogleService-Info.plist */,
 				497ECFC920C4E62A008ECC62 /* Supporting Files */,
@@ -101,6 +107,31 @@
 				497ECFC020C4E4A3008ECC62 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFB77FDB21195B1B0032A22A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */,
+				CFB77FD321194B640032A22A /* BagTableViewCell.swift */,
+				CFB77FD521194B720032A22A /* BrewTableViewCell.swift */,
+				CFB77FD721194BE60032A22A /* ActivityTableViewCell.swift */,
+				CFB77FD121187FB10032A22A /* RatingControl.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CFB77FDC21195B4B0032A22A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF05FE272112B10B00A20FC3 /* User.swift */,
+				497ECFD020C4F1EF008ECC62 /* Bag.swift */,
+				497ECFD420C53533008ECC62 /* Brew.swift */,
+				CF05FE292112B1C700A20FC3 /* Activity.swift */,
+				CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */,
+				497ECFD220C4F2C8008ECC62 /* Bean.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E27F56146E103BFC5B61426E /* Pods */ = {
@@ -251,13 +282,18 @@
 			files = (
 				497ECFB820C4E4A2008ECC62 /* AppDelegate.swift in Sources */,
 				497ECFD120C4F1EF008ECC62 /* Bag.swift in Sources */,
+				CFB77FD421194B640032A22A /* BagTableViewCell.swift in Sources */,
 				CF05FE2A2112B1C700A20FC3 /* Activity.swift in Sources */,
 				CF05FE2C2113F4AF00A20FC3 /* Grinder.swift in Sources */,
+				CFB77FD621194B720032A22A /* BrewTableViewCell.swift in Sources */,
+				CFB77FDA21194F980032A22A /* MainTableViewController.swift in Sources */,
 				CF05FE282112B10B00A20FC3 /* User.swift in Sources */,
 				CFB77FD021180F1D0032A22A /* StatisticTableViewCell.swift in Sources */,
 				497ECFD320C4F2C8008ECC62 /* Bean.swift in Sources */,
 				CF0EE2F820FD984700A3D3AC /* ViewController.swift in Sources */,
+				CFB77FD221187FB30032A22A /* RatingControl.swift in Sources */,
 				497ECFD520C53533008ECC62 /* Brew.swift in Sources */,
+				CFB77FD821194BE60032A22A /* ActivityTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
