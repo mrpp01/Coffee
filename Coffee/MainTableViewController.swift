@@ -10,11 +10,7 @@ import UIKit
 import Firebase
 
 class MainTableViewController: UITableViewController {
-//    var user: User! {
-//        didSet {
-//            self.activities = user.activities
-//        }
-//    }
+    var user: User! 
     var activities: [Activity]!
     
     // MARK: - Table view data source

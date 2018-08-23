@@ -20,8 +20,8 @@ class Brew {
     var dose: Double
     var note: String
     var rating: Int
+    var brewType: BrewType
     var method: Method
-    var equipment: Equipment
     
     var dictionary: [String: Any]{
         return [ Key.bagDocumentID: self.bagDocumentID,
@@ -30,8 +30,8 @@ class Brew {
                  Key.dose: self.dose,
                  Key.note: self.note,
                  Key.rating: self.rating,
-                 Key.method: self.method.rawValue,
-                 Key.equipment: self.equipment.rawValue
+                 Key.brewType: self.brewType.rawValue,
+                 Key.method: self.method.rawValue
         ]
     }
     
@@ -42,15 +42,16 @@ class Brew {
         self.grinderDocumentID = dictionary[Key.grinderDocumentID] as? String ?? DefaultValue.grinderDocumentID
         self.grindSize = dictionary[Key.grindSize] as? Int ?? DefaultValue.grindSize
         self.dose = dictionary[Key.dose] as? Double ?? DefaultValue.dose
+        print("Dose in init: \(self.dose)")
         self.note = dictionary[Key.note] as? String ?? DefaultValue.note
         self.rating = dictionary[Key.rating] as? Int  ?? DefaultValue.rating
-        self.method = dictionary[Key.method] != nil ? Method(rawValue: dictionary[Key.method] as! String)! : DefaultValue.method
+        self.brewType = dictionary[Key.brewType] != nil ? BrewType(rawValue: dictionary[Key.brewType] as! String)! : DefaultValue.brewType
+        if dictionary[Key.brewType] != nil, let brewType = BrewType(rawValue: dictionary[Key.brewType] as! String) {
+            self.brewType = brewType
+        } else { self.brewType = DefaultValue.brewType }
         if dictionary[Key.method] != nil, let method = Method(rawValue: dictionary[Key.method] as! String) {
             self.method = method
         } else { self.method = DefaultValue.method }
-        if dictionary[Key.equipment] != nil, let equipment = Equipment(rawValue: dictionary[Key.equipment] as! String) {
-            self.equipment = equipment
-        } else { self.equipment = DefaultValue.equipment }
     }
     
     init?(with snapshot: DocumentSnapshot) {
@@ -59,7 +60,7 @@ class Brew {
         }
         self.reference = snapshot.reference
         var needToUpdateFirebaseData = false
-
+        
         if let bagDocumentID = dictionary[Key.bagDocumentID] as? String { self.bagDocumentID = bagDocumentID
         } else {
             self.bagDocumentID = DefaultValue.bagDocumentID
@@ -87,13 +88,13 @@ class Brew {
             needToUpdateFirebaseData = true
         }
         self.rating = dictionary[Key.rating] as? Int  ?? DefaultValue.rating
-        self.method = dictionary[Key.method] != nil ? Method(rawValue: dictionary[Key.method] as! String)! : DefaultValue.method
+        self.brewType = dictionary[Key.brewType] != nil ? BrewType(rawValue: dictionary[Key.brewType] as! String)! : DefaultValue.brewType
+        if dictionary[Key.brewType] != nil, let brewType = BrewType(rawValue: dictionary[Key.brewType] as! String) {
+            self.brewType = brewType
+        } else { self.brewType = DefaultValue.brewType }
         if dictionary[Key.method] != nil, let method = Method(rawValue: dictionary[Key.method] as! String) {
             self.method = method
         } else { self.method = DefaultValue.method }
-        if dictionary[Key.equipment] != nil, let equipment = Equipment(rawValue: dictionary[Key.equipment] as! String) {
-            self.equipment = equipment
-        } else { self.equipment = DefaultValue.equipment }
     }
     
     class func createBrewData(with bagDocumentID: String, and dictionary: [String: Any]) -> [String: Any] {
@@ -101,7 +102,7 @@ class Brew {
     }
 }
 extension Brew {
-    enum Method: String {
+    enum BrewType: String {
         case Filter = "Filter"
         case Espresso = "Espresso"
         case NA = "N/A"
@@ -114,11 +115,12 @@ extension Brew {
         static let dose: Double = 20
         static let note: String = "N/A"
         static let rating: Int = 0
+        static let brewType: BrewType = .NA
         static let method: Method = .NA
-        static let equipment: Equipment = .NA
     }
     
-    enum Equipment: String {
+    enum Method: String, Searchable {
+        
         case AeroPress = "AeroPress"
         case V6001 = "V60 (01)"
         case V6002 = "V60 {02)"
@@ -136,6 +138,25 @@ extension Brew {
         case Cupping = "Cupping"
         case Other = "Other"
         case NA = "N/A"
+        
+        var displayName: String {
+            return self.rawValue
+        }
+        
+        static var all: [Method] {
+            return [ .AeroPress, .V6001, .V6002,
+                     .Chemex3, .Chemex6, .Chemex8,
+                     .KalitaWave155, .KalitaWave185, .Gino,
+                     .Kone, .CleverDripper, .Dragon,
+                     .FrenchPress, .ColdBrew, .Cupping,
+                     .Other, .NA,
+            ]
+        }
+        
+        func contains(keyword: String) -> Bool {
+            return self.rawValue.lowercased().contains(keyword: keyword.lowercased())
+        }
+        
     }
     
     struct Key {
@@ -145,7 +166,7 @@ extension Brew {
         static let dose = "dose"
         static let note = "note"
         static let rating = "rating"
+        static let brewType = "brewType"
         static let method = "method"
-        static let equipment = "equipment"
     }
 }

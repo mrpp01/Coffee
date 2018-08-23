@@ -91,6 +91,7 @@ extension ViewController {
                 return Activity(from: snapshotDocument)!
             }
             self.activities = activities
+            print("observeActivitiesQuery")
         }
     }
     

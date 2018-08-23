@@ -17,13 +17,13 @@ class Bag {
     
     private(set) var reference: DocumentReference!
     
-    private var brandName: String
-    private var producerInfo: String
-    private var roaster: String
-    private var roasterNotes: String
+    private(set) var brandName: String
+    private(set) var producerInfo: String
+    private(set) var roaster: String
+    private(set) var roasterNotes: String
     
-    private var roastDate: Date
-    private var weight: Double
+    private(set) var roastDate: Date
+    private(set) var weight: Double
     var usedWeight: Double { return  brewWeight + giftWeight + trashWeight }
     
     var currentWeight: Double {
@@ -351,7 +351,7 @@ extension Bag {
         var output = [String: Any]()
         output[Key.brewWeight] = self.brewWeight + brew.dose
         var currentStat = brewStatistic
-        currentStat[brew.equipment.rawValue] = brewStatistic[brew.equipment.rawValue] != nil ? brewStatistic[brew.equipment.rawValue]! + 1 : 1
+        currentStat[brew.method.rawValue] = brewStatistic[brew.method.rawValue] != nil ? brewStatistic[brew.method.rawValue]! + 1 : 1
         output[Key.brewStatistic] = currentStat
         
         return output
@@ -362,8 +362,8 @@ extension Bag {
     }
 }
 
+
+
 class OtherBag: Bag {
     static let documentID: String = "Others"
 }
-
-

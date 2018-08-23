@@ -10,7 +10,8 @@ import Firebase
 
 class User {
     
-    private(set) var bags: [Bag]
+    var bags: [Bag]
+    var origins: [Origin] = [Origin]()
     private(set) var brews: [Brew]
     private(set) var activities: [Activity]
     
@@ -44,20 +45,6 @@ class User {
         }
     }
     
-    func createDefault() {
-        let bagRef = database.collection("defaultValues").document("Bag")
-        let bag = Bag(from: [String: Any]())
-        
-        let brewRef = database.collection("defaultValues").document("Brew")
-        let brew = Brew(with: "", and: [String: Any]())
-        
-        let batch = database.batch()
-        batch.setData(bag.dictionary, forDocument: bagRef)
-        batch.setData(brew.dictionary, forDocument: brewRef)
-        
-        batch.commit()
-    }
-    
     //MARK: Create Brew
     /**
      Create a brew instance
@@ -71,7 +58,7 @@ class User {
         let brewReference = getNewBrewReference()
         let brew = Brew(with: selectedBag.reference.documentID, and: dictionary)
         
-        let newActivityReference = getNewBagReference()
+        let newActivityReference = getNewActivityReference()
         let newActivity = Activity(type: .CreateBrew, referenceDocumentID: brewReference.documentID)
         
         //Check to see if bag exist in array. If not, throw fatal error.
@@ -82,17 +69,36 @@ class User {
         let batch = database.batch()
 
         batch.setData(brew.dictionary, forDocument: brewReference)
-        batch.setData(updatedBagData, forDocument: selectedBag.reference)
+       // batch.setData(updatedBagData, forDocument: selectedBag.reference)
+        batch.setData(updatedBagData, forDocument: selectedBag.reference, merge: true)
         batch.setData(newActivity.dictionary, forDocument: newActivityReference)
         
         batch.commit { (error) in
             if let error = error { print("Batch write failed with error: \(error)")
             } else { print("Batch write succeeded") }
         }
+    }
+    
+    func createBrew(with dictionary: [String: Any]) {
         
-        //...
-        //let activity = Activity(.CreateBrew, with: reference)
-        //activities.append(activity)
+        //TODO: Handle case when "Others" bag does not exist
+        //TODO: Add activity
+        let brewReference = getNewBrewReference()
+        let brew = Brew(with: "Others", and: dictionary)
+        
+        let newActivityReference = getNewActivityReference()
+        let newActivity = Activity(type: .CreateBrew, referenceDocumentID: brewReference.documentID)
+        
+        //Batch write to Firebase
+        let batch = database.batch()
+        
+        batch.setData(brew.dictionary, forDocument: brewReference)
+        batch.setData(newActivity.dictionary, forDocument: newActivityReference)
+        
+        batch.commit { (error) in
+            if let error = error { print("Batch write failed with error: \(error)")
+            } else { print("Batch write succeeded") }
+        }
     }
     
     private func getBagReference(with documentID: String) -> DocumentReference {
@@ -125,5 +131,6 @@ extension User {
         static let bags = "bags"
         static let brews = "brews"
         static let activities = "activities"
+        static let origins = "origins"
     }
 }
