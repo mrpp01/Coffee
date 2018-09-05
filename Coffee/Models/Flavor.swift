@@ -19,7 +19,7 @@ class Flavor {
     private(set) var section: String
     private(set) var subSection: String
     
-    private static let wheel: [String: [String]] = [
+    static let wheel: [String: [String]] = [
         "Floral": ["Black Tea", "Floral"], "Fruity": ["Berry", "Dried Fruit", "Other Fruit", "Citrus Fruit"],
         "Sour": ["Sour", "Alcohol"], "Green": ["Olive Oil", "Raw", "Vegetative"],
         "Other": ["Chemical", "Papery"], "Roasted": ["Tobaco", "Pipe Tobaco", "Cereal", "Burnt"],
@@ -132,5 +132,17 @@ enum Taste {
         enum BrownSuger {
             case molasses, mappleSyrup, caramelized, honey
         }
+    }
+}
+
+extension Flavor: Searchable {
+    func contains(keyword: String) -> Bool {
+        return self.section.lowercased().contains(keyword: keyword.lowercased()) || self.subSection.lowercased().contains(keyword: keyword.lowercased())
+    }
+}
+
+extension Flavor: Presentable {
+    var displayName: String {
+        return section + "- " + subSection
     }
 }

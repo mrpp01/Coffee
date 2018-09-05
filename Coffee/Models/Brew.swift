@@ -13,111 +13,63 @@ class Brew {
     
     //MARK: Properties
     
-    private(set) var reference: DocumentReference!
-    var bagDocumentID: String
-    var grinderDocumentID: String
-    var grindSize: Int
-    var dose: Double
-    var note: String
-    var rating: Int
-    var brewType: BrewType
+    internal var reference: DocumentReference?
+    var documentID: String? {
+        return reference?.documentID
+    }
+    var bagDocumentID: String?
+    var bag: Bag?
+    
     var method: Method
     
-    var dictionary: [String: Any]{
-        return [ Key.bagDocumentID: self.bagDocumentID,
-                 Key.grinderDocumentID: self.grinderDocumentID,
-                 Key.grindSize: self.grindSize,
-                 Key.dose: self.dose,
-                 Key.note: self.note,
-                 Key.rating: self.rating,
-                 Key.brewType: self.brewType.rawValue,
-                 Key.method: self.method.rawValue
-        ]
-    }
+    var recipeDocumentID: String?
+    var recipe: Recipe?
+    
+    var flavors: [Flavor]
+    
+    var note: String
+    var rating: Int?
     
     //MARK: Initialization as new Brew
+    init(bag: Bag, recipe: Recipe?, rating: Int?, flavors: [Flavor], method: Method, note: String ) {
+        self.recipe = recipe
+        self.rating = rating
+        self.flavors = flavors
+        self.method = method
+        self.note = note
+        self.method = method
+    }
+    
+    
     init(with bagDocumentID: String, and dictionary: [String: Any]) {
         //        fatalError("Brew Initialization need tto be implemented")
         self.bagDocumentID = bagDocumentID
-        self.grinderDocumentID = dictionary[Key.grinderDocumentID] as? String ?? DefaultValue.grinderDocumentID
-        self.grindSize = dictionary[Key.grindSize] as? Int ?? DefaultValue.grindSize
-        self.dose = dictionary[Key.dose] as? Double ?? DefaultValue.dose
-        print("Dose in init: \(self.dose)")
-        self.note = dictionary[Key.note] as? String ?? DefaultValue.note
-        self.rating = dictionary[Key.rating] as? Int  ?? DefaultValue.rating
-        self.brewType = dictionary[Key.brewType] != nil ? BrewType(rawValue: dictionary[Key.brewType] as! String)! : DefaultValue.brewType
-        if dictionary[Key.brewType] != nil, let brewType = BrewType(rawValue: dictionary[Key.brewType] as! String) {
-            self.brewType = brewType
-        } else { self.brewType = DefaultValue.brewType }
-        if dictionary[Key.method] != nil, let method = Method(rawValue: dictionary[Key.method] as! String) {
-            self.method = method
-        } else { self.method = DefaultValue.method }
+        self.note = dictionary[Key.note] as? String ?? ""
+        self.rating = dictionary[Key.rating] as? Int
+        
+        
+        self.method = dictionary[Key.method] != nil ? Method(rawValue: dictionary[Key.method] as! String)! : .NA
+        self.flavors = [Flavor]()
     }
     
-    init?(with snapshot: DocumentSnapshot) {
+    required convenience init?(from snapshot: DocumentSnapshot) {
+        
         guard let dictionary = snapshot.data() else {
             fatalError("Failed to init brew from snapshot")
         }
+        self.init(with: snapshot.documentID, and: dictionary)
+        
         self.reference = snapshot.reference
-        var needToUpdateFirebaseData = false
         
-        if let bagDocumentID = dictionary[Key.bagDocumentID] as? String { self.bagDocumentID = bagDocumentID
-        } else {
-            self.bagDocumentID = DefaultValue.bagDocumentID
-            needToUpdateFirebaseData = true
-        }
-        
-        if let grinderDocumentID = dictionary[Key.grinderDocumentID] as? String { self.grinderDocumentID = grinderDocumentID
-        } else {
-            self.grinderDocumentID = DefaultValue.grinderDocumentID
-            needToUpdateFirebaseData = true
-        }
-        if let grindSize = dictionary[Key.grindSize] as? Int { self.grindSize = grindSize
-        } else {
-            self.grindSize = DefaultValue.grindSize
-            needToUpdateFirebaseData = true
-        }
-        if let dose = dictionary[Key.dose] as? Double { self.dose = dose
-        } else {
-            self.dose = DefaultValue.dose
-            needToUpdateFirebaseData = true
-        }
-        if let note = dictionary[Key.note] as? String { self.note = note
-        } else {
-            self.note =  DefaultValue.note
-            needToUpdateFirebaseData = true
-        }
-        self.rating = dictionary[Key.rating] as? Int  ?? DefaultValue.rating
-        self.brewType = dictionary[Key.brewType] != nil ? BrewType(rawValue: dictionary[Key.brewType] as! String)! : DefaultValue.brewType
-        if dictionary[Key.brewType] != nil, let brewType = BrewType(rawValue: dictionary[Key.brewType] as! String) {
-            self.brewType = brewType
-        } else { self.brewType = DefaultValue.brewType }
-        if dictionary[Key.method] != nil, let method = Method(rawValue: dictionary[Key.method] as! String) {
-            self.method = method
-        } else { self.method = DefaultValue.method }
     }
+    
     
     class func createBrewData(with bagDocumentID: String, and dictionary: [String: Any]) -> [String: Any] {
         return Brew(with: bagDocumentID, and: dictionary).dictionary
     }
 }
+
 extension Brew {
-    enum BrewType: String {
-        case Filter = "Filter"
-        case Espresso = "Espresso"
-        case NA = "N/A"
-    }
-    
-    private struct DefaultValue {
-        static let bagDocumentID = OtherBag.documentID
-        static let grinderDocumentID = OtherGrinder.documentID
-        static let grindSize: Int = 0
-        static let dose: Double = 20
-        static let note: String = "N/A"
-        static let rating: Int = 0
-        static let brewType: BrewType = .NA
-        static let method: Method = .NA
-    }
     
     enum Method: String, Searchable {
         
@@ -162,11 +114,79 @@ extension Brew {
     struct Key {
         static let bagDocumentID = "bagDocumentID"
         static let grinderDocumentID = "grinderDocumentID"
-        static let grindSize = "grindSize"
-        static let dose = "dose"
         static let note = "note"
         static let rating = "rating"
-        static let brewType = "brewType"
         static let method = "method"
     }
+}
+
+extension Brew: FirestoreModel {
+    
+    
+    var dictionary: [String: Any]{
+        return [ Key.bagDocumentID: self.bagDocumentID as Any,
+                 Key.note: self.note,
+                 Key.rating: self.rating as Any,
+                 Key.method: self.method.rawValue
+        ]
+    }
+    
+    var collectionPath: String {
+        return "brews"
+    }
+    
+    enum Field: String {
+        
+        case bagDocumentID = "bagDocumentID"
+        case bag = "bag"
+        case method = "method"
+        case recipeDocumentID = "recipeDocumentID"
+        case recipe = "recipe"
+        case note = "note"
+        case flavors = "flavors"
+        case rating = "rating"
+        
+        static var dictionaryFields: [Field] {
+            return [.bagDocumentID, .method, .recipeDocumentID , .note, .flavors, .rating]
+        }
+    }
+
+    func valueFor(field: Field) -> Any {
+        switch field {
+        case .bagDocumentID: return self.bagDocumentID as Any
+        case .bag: return bag as Any
+        case .method: return method
+        case .recipeDocumentID: return recipeDocumentID as Any
+        case .recipe: return recipe as Any
+        case .note: return note
+        case .flavors: return flavors
+        case .rating: return rating as Any
+            
+        }
+    }
+    
+    func stringValueFor(field: Field) -> String {
+        switch field {
+        case .bagDocumentID: return self.bagDocumentID ?? ""
+        case .bag: return bag?.displayName ?? "-"
+        case .method: return method.rawValue
+        case .recipeDocumentID: return recipeDocumentID ?? ""
+        case .recipe: return recipe?.name ?? "-"
+        case .note: return note
+        default: return ""
+        }
+    }
+    
+    func setValue(value: Any, for field: Field) {
+        
+    }
+    
+    func saveTo(database: Firestore) {
+    
+    }
+
+    func notifyObserver(message: String) {
+        
+    }
+    
 }

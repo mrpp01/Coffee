@@ -24,7 +24,13 @@
 		CF1C662721252C4F00AE5D87 /* SearchableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1C662621252C4F00AE5D87 /* SearchableProtocol.swift */; };
 		CF1C662B2125345A00AE5D87 /* SelectItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1C662A2125345A00AE5D87 /* SelectItem.storyboard */; };
 		CF1C662D21253AE900AE5D87 /* RoastOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1C662C21253AE900AE5D87 /* RoastOption.swift */; };
+		CF2C2D91213E26B00038FF6C /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C2D90213E26B00038FF6C /* Coffee.swift */; };
+		CF2C2D93213E28970038FF6C /* Farm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C2D92213E28970038FF6C /* Farm.swift */; };
+		CF2C2D95213E29590038FF6C /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C2D94213E29590038FF6C /* Brand.swift */; };
+		CF2C2D97213E2A1F0038FF6C /* Roaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C2D96213E2A1F0038FF6C /* Roaster.swift */; };
+		CF2C2D99213E337B0038FF6C /* Variety.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2C2D98213E337B0038FF6C /* Variety.swift */; };
 		CF32D4F7212A884600AD18A8 /* Flavor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF32D4F6212A884600AD18A8 /* Flavor.swift */; };
+		CF37826E213E78F000C7FDD6 /* UnitStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF37826D213E78F000C7FDD6 /* UnitStackView.swift */; };
 		CFA05B3A21217EA400F2EC36 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA05B3921217EA400F2EC36 /* TabBarViewController.swift */; };
 		CFB77FD021180F1D0032A22A /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */; };
 		CFB77FD221187FB30032A22A /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD121187FB10032A22A /* RatingControl.swift */; };
@@ -33,8 +39,11 @@
 		CFB77FD821194BE60032A22A /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD721194BE60032A22A /* ActivityTableViewCell.swift */; };
 		CFB77FDA21194F980032A22A /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB77FD921194F980032A22A /* MainTableViewController.swift */; };
 		CFC57C842124235900487C39 /* BagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC57C832124235900487C39 /* BagTableViewController.swift */; };
+		CFD6A8BA2136406000995492 /* FirestoreModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD6A8B92136406000995492 /* FirestoreModelDelegate.swift */; };
 		CFE6840C212AB8C400DC11F6 /* FlavorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE6840B212AB8C400DC11F6 /* FlavorTableViewController.swift */; };
 		CFE68410212BC76900DC11F6 /* Flavor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE6840F212BC76900DC11F6 /* Flavor.storyboard */; };
+		CFF80D52212F04A00085D353 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF80D51212F04A00085D353 /* Recipe.swift */; };
+		CFF80D54212FECBB0085D353 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF80D53212FECBB0085D353 /* RecipeViewController.swift */; };
 		CFFCB5E4211C25F200E480D4 /* BrewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCB5E3211C25F200E480D4 /* BrewTableViewController.swift */; };
 		DA5286B13E8804E5DEE8EE3B /* Pods_Coffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D6C28251AFCFCD395C188B /* Pods_Coffee.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +71,14 @@
 		CF1C662621252C4F00AE5D87 /* SearchableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableProtocol.swift; sourceTree = "<group>"; };
 		CF1C662A2125345A00AE5D87 /* SelectItem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectItem.storyboard; sourceTree = "<group>"; };
 		CF1C662C21253AE900AE5D87 /* RoastOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastOption.swift; sourceTree = "<group>"; };
+		CF2C2D90213E26B00038FF6C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		CF2C2D92213E28970038FF6C /* Farm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Farm.swift; sourceTree = "<group>"; };
+		CF2C2D94213E29590038FF6C /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		CF2C2D96213E2A1F0038FF6C /* Roaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roaster.swift; sourceTree = "<group>"; };
+		CF2C2D98213E337B0038FF6C /* Variety.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variety.swift; sourceTree = "<group>"; };
 		CF32D4F6212A884600AD18A8 /* Flavor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flavor.swift; sourceTree = "<group>"; };
+		CF37826D213E78F000C7FDD6 /* UnitStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnitStackView.swift; path = Views/UnitStackView.swift; sourceTree = "<group>"; };
+		CF37826F213E7FDE00C7FDD6 /* ViewPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ViewPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CFA05B3921217EA400F2EC36 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CFB77FCF21180F1D0032A22A /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
 		CFB77FD121187FB10032A22A /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
@@ -71,8 +87,12 @@
 		CFB77FD721194BE60032A22A /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		CFB77FD921194F980032A22A /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CFC57C832124235900487C39 /* BagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagTableViewController.swift; sourceTree = "<group>"; };
+		CFD6A8B92136406000995492 /* FirestoreModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreModelDelegate.swift; sourceTree = "<group>"; };
 		CFE6840B212AB8C400DC11F6 /* FlavorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorTableViewController.swift; sourceTree = "<group>"; };
 		CFE6840F212BC76900DC11F6 /* Flavor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Flavor.storyboard; sourceTree = "<group>"; };
+		CFF80D50212EFFA40085D353 /* Model.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Model.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CFF80D51212F04A00085D353 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		CFF80D53212FECBB0085D353 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		CFFCB5E3211C25F200E480D4 /* BrewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,10 +130,13 @@
 			isa = PBXGroup;
 			children = (
 				497ECFBB20C4E4A2008ECC62 /* Main.storyboard */,
+				CF37826D213E78F000C7FDD6 /* UnitStackView.swift */,
+				CF37826F213E7FDE00C7FDD6 /* ViewPlayground.playground */,
 				CF1C662A2125345A00AE5D87 /* SelectItem.storyboard */,
 				CFE6840F212BC76900DC11F6 /* Flavor.storyboard */,
 				CFC57C832124235900487C39 /* BagTableViewController.swift */,
 				CFFCB5E3211C25F200E480D4 /* BrewTableViewController.swift */,
+				CFF80D53212FECBB0085D353 /* RecipeViewController.swift */,
 				CF0EE2F720FD984700A3D3AC /* ViewController.swift */,
 				CFB77FD921194F980032A22A /* MainTableViewController.swift */,
 				CFA05B3921217EA400F2EC36 /* TabBarViewController.swift */,
@@ -142,6 +165,7 @@
 		CF1C662821252F1F00AE5D87 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				CFD6A8B92136406000995492 /* FirestoreModelDelegate.swift */,
 				CF1C662621252C4F00AE5D87 /* SearchableProtocol.swift */,
 			);
 			path = Protocol;
@@ -163,14 +187,21 @@
 			isa = PBXGroup;
 			children = (
 				CF05FE272112B10B00A20FC3 /* User.swift */,
-				497ECFD020C4F1EF008ECC62 /* Bag.swift */,
-				497ECFD420C53533008ECC62 /* Brew.swift */,
 				CF05FE292112B1C700A20FC3 /* Activity.swift */,
-				CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */,
-				497ECFD220C4F2C8008ECC62 /* Bean.swift */,
+				497ECFD020C4F1EF008ECC62 /* Bag.swift */,
+				CF2C2D90213E26B00038FF6C /* Coffee.swift */,
 				CF1C662221252A6E00AE5D87 /* Origin.swift */,
+				CF2C2D98213E337B0038FF6C /* Variety.swift */,
+				CF2C2D94213E29590038FF6C /* Brand.swift */,
+				CF2C2D96213E2A1F0038FF6C /* Roaster.swift */,
+				CF2C2D92213E28970038FF6C /* Farm.swift */,
+				497ECFD420C53533008ECC62 /* Brew.swift */,
+				497ECFD220C4F2C8008ECC62 /* Bean.swift */,
+				CFF80D51212F04A00085D353 /* Recipe.swift */,
+				CF05FE2B2113F4AF00A20FC3 /* Grinder.swift */,
 				CF1C662C21253AE900AE5D87 /* RoastOption.swift */,
 				CF32D4F6212A884600AD18A8 /* Flavor.swift */,
+				CFF80D50212EFFA40085D353 /* Model.playground */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,9 +355,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFC57C842124235900487C39 /* BagTableViewController.swift in Sources */,
+				CF2C2D95213E29590038FF6C /* Brand.swift in Sources */,
 				CFA05B3A21217EA400F2EC36 /* TabBarViewController.swift in Sources */,
 				497ECFB820C4E4A2008ECC62 /* AppDelegate.swift in Sources */,
 				497ECFD120C4F1EF008ECC62 /* Bag.swift in Sources */,
+				CF37826E213E78F000C7FDD6 /* UnitStackView.swift in Sources */,
+				CFF80D54212FECBB0085D353 /* RecipeViewController.swift in Sources */,
 				CFB77FD421194B640032A22A /* BagTableViewCell.swift in Sources */,
 				CF05FE2A2112B1C700A20FC3 /* Activity.swift in Sources */,
 				CF1C662521252AFA00AE5D87 /* SelectItemTableViewController.swift in Sources */,
@@ -336,13 +370,19 @@
 				CFB77FDA21194F980032A22A /* MainTableViewController.swift in Sources */,
 				CFFCB5E4211C25F200E480D4 /* BrewTableViewController.swift in Sources */,
 				CF05FE282112B10B00A20FC3 /* User.swift in Sources */,
+				CFD6A8BA2136406000995492 /* FirestoreModelDelegate.swift in Sources */,
+				CF2C2D93213E28970038FF6C /* Farm.swift in Sources */,
 				CF1C662D21253AE900AE5D87 /* RoastOption.swift in Sources */,
 				CF32D4F7212A884600AD18A8 /* Flavor.swift in Sources */,
+				CF2C2D99213E337B0038FF6C /* Variety.swift in Sources */,
+				CFF80D52212F04A00085D353 /* Recipe.swift in Sources */,
+				CF2C2D97213E2A1F0038FF6C /* Roaster.swift in Sources */,
 				CFB77FD021180F1D0032A22A /* StatisticTableViewCell.swift in Sources */,
 				497ECFD320C4F2C8008ECC62 /* Bean.swift in Sources */,
 				CF0EE2F820FD984700A3D3AC /* ViewController.swift in Sources */,
 				CF1C662721252C4F00AE5D87 /* SearchableProtocol.swift in Sources */,
 				CFB77FD221187FB30032A22A /* RatingControl.swift in Sources */,
+				CF2C2D91213E26B00038FF6C /* Coffee.swift in Sources */,
 				497ECFD520C53533008ECC62 /* Brew.swift in Sources */,
 				CFB77FD821194BE60032A22A /* ActivityTableViewCell.swift in Sources */,
 				CF1C662321252A6E00AE5D87 /* Origin.swift in Sources */,

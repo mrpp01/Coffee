@@ -27,21 +27,21 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         user = User.getUser()
-        self.bagsQuery = baseBagsQuerry()
-        user.database.collection(User.CollectionKeys.origins).getDocuments() { [unowned self](querySnapshot, error) in
-            
-            guard let querySnapshot = querySnapshot else {
-                print("Cannot fetch origins. Error: \(error!)")
-                return
-            }
-            
-            let origins = querySnapshot.documents.map {
-                (document) -> Origin in
-                return Origin(from: document)!
-            }
-            self.user.origins = origins
-            
-        }
+//        self.bagsQuery = baseBagsQuerry()
+//        user.database.collection(User.CollectionKeys.origins).getDocuments() { [unowned self](querySnapshot, error) in
+//            
+//            guard let querySnapshot = querySnapshot else {
+//                print("Cannot fetch origins. Error: \(error!)")
+//                return
+//            }
+//            
+//            let origins = querySnapshot.documents.map {
+//                (document) -> Origin in
+//                return Origin(from: document)!
+//            }
+//            self.user.origins = origins
+//            
+//        }
     }
     
     
@@ -86,7 +86,7 @@ extension TabBarViewController {
             }
             
             let bags = snapshot.documents.map { (snapshotDocument) -> Bag in
-                return Bag.createBag(from: snapshotDocument)!
+                return Bag(from: snapshotDocument)!
             }
             self.user.bags = bags
             print("bag update")

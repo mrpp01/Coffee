@@ -36,7 +36,7 @@ class SelectItemTableViewController: UITableViewController {
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
-
+	
 }
 
 extension SelectItemTableViewController {
@@ -52,8 +52,8 @@ extension SelectItemTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Item Cell", for: indexPath)
-        
-        cell.textLabel?.text = filteredItems[indexPath.row].displayName
+        let item = filteredItems[indexPath.row] as! Presentable
+        cell.textLabel?.text = item.displayName
         
         return cell
     }
@@ -89,7 +89,6 @@ extension SelectItemTableViewController: UISearchResultsUpdating {
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-    
     
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)

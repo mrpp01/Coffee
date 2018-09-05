@@ -35,7 +35,6 @@ class ViewController: UIViewController {
     var activitiesListener: ListenerRegistration?
     
     @IBAction func demoAction(_ sender: UIButton) {
-        user.createBag(from: [String: Any]())
     }
     
     //MARK: App Life Cycle
@@ -63,11 +62,12 @@ class ViewController: UIViewController {
 //MARK: Notification
 extension ViewController {
     @objc func handle(notification: Notification) {
+
     }
     
     func addObserver() {
-        let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(handle(notification:)), name: Notification.Name.BagDidChange, object: nil)
+//        let center = NotificationCenter.default
+//        center.addObserver(self, selector: #selector(handle(notification:)), name: Notification.Name.BagDidChange, object: nil)
     }
 }
 

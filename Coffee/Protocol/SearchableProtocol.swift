@@ -9,25 +9,8 @@
 import Foundation
 
 protocol Searchable {
-    var displayName: String {get}
+//    var displayName: String {get}
     func contains(keyword: String) -> Bool
-}
-
-extension Bag: Searchable {
-    
-    var displayName: String { return brandName }
-    
-    func contains(keyword: String) -> Bool {
-        return self.brandName.lowercased().contains(keyword.lowercased())
-    }
-}
-
-extension Origin: Searchable {
-    var displayName: String { return country }
-    
-    func contains(keyword: String) -> Bool {
-        return self.country.lowercased().contains(keyword.lowercased())
-    }
 }
 
 extension String: Searchable {
@@ -40,14 +23,6 @@ extension String: Searchable {
     
 }
 
-extension Flavor: Searchable {
-    var displayName: String {
-        return section + "- " + subSection
-    }
-    
-    func contains(keyword: String) -> Bool {
-        return self.section.lowercased().contains(keyword: keyword.lowercased()) || self.subSection.lowercased().contains(keyword: keyword.lowercased())
-    }
+protocol Presentable {
+    var displayName: String {get}
 }
-
-

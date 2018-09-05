@@ -17,12 +17,14 @@ class BagTableViewController: UITableViewController {
     @IBOutlet weak var varietyButton: UIButton!
     @IBOutlet weak var farmField: UITextField!
     @IBOutlet weak var altitudeField: UITextField!
-    @IBOutlet weak var farmerField: UITextField!
+    @IBOutlet weak var producerField: UITextField!
     @IBOutlet weak var processField: UITextField!
+    @IBOutlet weak var brandField: UITextField!
+    @IBOutlet weak var roasterField: UITextField!
     @IBOutlet weak var roastField: UITextField!
     @IBOutlet weak var weightField: UITextField!
     @IBOutlet weak var roastDateField: UITextField!
-  
+    @IBOutlet weak var priceField: UITextField!
     //MARK: IBAction
     @IBAction func roastFieldDidBeginEditing(_ sender: UITextField) {
         sender.inputView = roastPicker
@@ -37,11 +39,13 @@ class BagTableViewController: UITableViewController {
     
     
     @IBAction func saveBag(_ sender: UIBarButtonItem) {
-        user.createBag(from: dictionary)
+        updateUI()
+
     }
     
     //MARK: - Variables
-    private var user: User!
+    var bag: Bag? { didSet { updateUI() } }
+    private var user: User! { didSet { self.bag = user.bags.first } }
     private var flavors: [Flavor] = [Flavor]()
     private var brandName: String = "Ethiopia Heirloom" {
         didSet {
@@ -89,8 +93,10 @@ class BagTableViewController: UITableViewController {
     }
     
     var dictionary: [String: Any] {
-        return [Bag.Key.brandName: self.brandName,
-                Bag.Key.brewWeight: self.brewWeight]
+//        return [Bag.Key.brandName: self.brandName,
+//                Bag.Key.brewWeight: self.brewWeight]
+        
+        return [String: Any]()
     }
     
     private var roastPicker = UIPickerView()
@@ -104,6 +110,26 @@ class BagTableViewController: UITableViewController {
         self.roastPicker.dataSource = self
         addInputAccessories(for: roastField)
         addInputAccessories(for: roastDateField)
+    }
+    
+    func updateUI() {
+        guard let bag = bag else {
+            return
+        }
+        self.displayNameLabel.text = bag.stringValue(for: .displayName)
+        self.originButton.titleLabel?.text = bag.stringValue(for: .origin)
+        self.varietyButton.titleLabel?.text = bag.stringValue(for: .variety)
+        self.producerField.text = bag.stringValue(for: .producer)
+        print(bag.stringValue(for: .producer))
+        self.farmField.text = bag.stringValue(for: .farm)
+        self.altitudeField.text = bag.stringValue(for: .altitude)
+        self.processField.text = bag.stringValue(for: .process)
+        self.brandField.text = bag.stringValue(for: .brand)
+        self.roasterField.text = bag.stringValue(for: .roaster)
+        self.roastDateField.text = bag.stringValue(for: .roastDate)
+        self.roastField.text = bag.stringValue(for: .roast)
+        self.priceField.text = bag.stringValue(for: .price)
+        self.weightField.text = bag.stringValue(for: .weight)
     }
     
     private func addInputAccessories(for textField: UITextField) {
@@ -168,7 +194,7 @@ extension BagTableViewController {
                 }
             }
             
-            destinationVC.sourceItems = Bean.varieties
+            destinationVC.sourceItems = Coffee.varieties
             
         case SegueIdentifier.selectFlavor:
             destinationVC.didSelect = { [weak self] (flavor) in
@@ -211,7 +237,7 @@ extension BagTableViewController: UITextFieldDelegate {
         else if textField === altitudeField {
             altitude = Int(textField.text ?? "0") ?? 0
         }
-        else if textField === farmerField {
+        else if textField === producerField {
             farmer = textField.text ?? "__"
         }
         else if textField === processField {
